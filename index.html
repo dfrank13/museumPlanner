@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>The Museum Planner</title>
+    </head>
+    <body>
+        
+        <!-- Search Box -->
+        <div class="searchBox">
+            <p><span class="title">Museum Name: </span><input type="text" placeholder="search"></span></p>
+    
+            <!-- Days checkboxes -->
+            <span class="title">Days: </span>
+            <form id="days">
+                <input type="checkbox" name="days" value="Sunday" id="sunday" CHECKED> Sunday 
+                <input type="checkbox" name="days" value="Monday" id="monday" CHECKED> Monday
+                <input type="checkbox" name="days" value="Tuesday" id="tuesday" CHECKED> Tuesday
+                <input type="checkbox" name="days" value="Wednesday" id="wednesday" CHECKED> Wednesday
+                <input type="checkbox" name="days" value="Thursday" id="thursday" CHECKED> Thursday
+                <input type="checkbox" name="days" value="Friday" id="friday" CHECKED> Friday
+                <input type="checkbox" name="days" value="Saturday" id="saturday" CHECKED> Saturday
+            </form>
+               
+            <!-- boroughs textboxes -->
+            <p id="borough"><span class="title">Borough: </span><br>
+                <input type="checkbox" name="borough" value="Bronx" id="bronx" CHECKED> Bronx <input type="checkbox" name="borough" value="Brooklyn" id="brooklyn" CHECKED> Brooklyn <input type="checkbox" name="borough" value="Manhattan" id="manhattan" CHECKED> Manhattan <input type="checkbox" name="borough" value="Queens" id="queens" CHECKED> Queens <input type="checkbox" name="borough" id="staten" value="Staten" CHECKED> Staten Island</p>
+    
+            <!-- discounts checkbox -->
+            <p id="discount"><span class="title">Free or discounted options: </span><br>
+                <input type="checkbox" name="discount" value="discount"></p>
+            <!-- Search Button -->
+            <button id="search">Search</button>
+        </div>
+
+        <!--------------------------------------------- The map from carto will probably be replaced with API from Google maps so that I have more options to customize----------------------------------------------------->
+        <br>
+        <iframe width="700px" height="520" frameborder="0" src="https://dfrank13.carto.com/builder/7093b261-fcda-4907-99d9-d39b740d271d/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
+
+        <!---------------------------------------------------- The museum list ---------------------------------------------------------------------------------------------------->
+        <p><span class="title">Museum List</span></p>
+        <ol id="museums">
+            <li>
+                <div class="sunday monday tuesday wednesday thursday friday saturday manhattan discount" id="div1">
+                <input type="checkbox" name="div1" id="input1" class="input"> American Museum of Natural History
+                    <div class="hidden">
+                        <!-- Days open -->
+                        <section class="days"><b>Days</b>:<br>
+                            Sunday: 10am-5:45pm<br>
+                            Monday: 10am-5:45pm<br>
+                            Tuesday: 10am-5:45pm<br>
+                            Wednesday: 10am-5:45pm<br>
+                            Thrusday: 10am-5:45pm<br>
+                            Friday: 10am-5:45pm<br>
+                            Saturday: 10am-5:45pm<br>
+                        </section>
+                    
+                        <!-- Borough -->
+                        <section class="borough"><b>Borough</b>:<br>        
+                            Manhattan
+                        </section>
+                    
+                        <!-- Museum discount -->
+                        <section class="last"><b>Discount</b>:<br>   
+                            Suggested donation, at museum ticket counter only.</section>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="sunday wednesday thursday friday saturday bronx discount" id="div2">
+                <input type="checkbox" name="museum" id="input2" class="input"> Bronx Museum of the Arts
+                    <div class="hidden">
+                        <!-- Days open -->
+                        <section class="days"><b>Days</b>:<br>
+                            Sunday: 11am-6pm<br>
+                            Wednesday: 1pm-6pm<br>
+                            Thrusday: 11am-6pm<br>
+                            Friday: 11am-8pm<br>
+                            Saturday: 11am-6pm<br>
+                        </section>
+                    
+                        <!-- Borough -->
+                        <section class="borough"><b>Borough</b>: <div class="bronx">Bronx</div></section>
+                    
+                        <!-- Museum discount -->
+                        <section class="last"><b>Discount</b>: <div class="discount">Museum is free to everyone.</div></section>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="sunday wednesday thursday friday saturday brooklyn discount" id="div3">
+                <input type="checkbox" name="museum" id="input3" class="input"> Brooklyn Museum
+                    <div class="hidden">
+                        <!-- Days open -->
+                        <section class="days"><b>Days</b>:<br>
+                            Sunday: 11am-6pm<br>
+                            Wednesday: 11am-6pm<br>
+                            Thrusday: 11am-10pm<br>
+                            Friday: 11am-6pm<br>
+                            Saturday: 11am-6pm<br>
+                        </section>
+                    
+                        <!-- Borough -->
+                        <section class="borough"><b>Borough</b>:<br>        
+                            Brooklyn
+                        </section>
+                    
+                        <!-- Museum discount -->
+                        <section class="last"><b>Discount</b>:<br>   
+                            Suggested donation at museum ticket counter only. First Saturday of the month (except September) is free and includes events at the museum.</section>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="sunday monday tuesday wednesday thursday friday saturday manhattan discount" id="div4">
+                <input type="checkbox" name="museum" id="input4" class="input"> Metropolitan Museum of Art
+                    <div class="hidden">
+                        <!-- Days open -->
+                        <section class="days"><b>Days</b>:<br>
+                            Sunday: 10am-5:30pm<br>
+                            Monday: 10am-5:30pm<br>
+                            Tuesday: 10am-5:30pm<br>
+                            Wednesday: 10am-5:30pm<br>
+                            Thrusday: 10am-5:30pm<br>
+                            Friday: 10am-9pm<br>
+                            Saturday: 10am-9pm<br>
+                        </section>
+                    
+                        <!-- Borough -->
+                        <section class="borough"><b>Borough</b>:<br>        
+                            Manhattan
+                        </section>
+                    
+                        <!-- Museum discount -->
+                        <section class="last"><b>Discount</b>:<br>   
+                            Suggested donation for New York residents. <br>General Admission tickets are valid for three consecutive days at the Met Fifth Avenue, The Met Breuer, and The Met Cloisters.</section>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="sunday tuesday wednesday thursday friday saturday manhattan discount" id="div5">
+                <input type="checkbox" name="museum" id="input5" class="input"> The Morgan Library and Museum
+                    <div class="hidden">
+                        <!-- Days open -->
+                        <section class="days"><b>Days</b>:<br>
+                            Sunday: 11am-6pm<br>
+                            Tuesday: 10:30am-5pm<br>
+                            Wednesday: 10:30am-5pm<br>
+                            Thrusday: 10:30am-5pm<br>
+                            Friday: 10:30am-9pm<br>
+                            Saturday: 10am-6pm<br>
+                        </section>
+                    
+                        <!-- Borough -->
+                        <section class="borough"><b>Borough</b>:<br>        
+                            Manhattan
+                        </section>
+                    
+                        <!-- Museum discount -->
+                        <section class="last"><b>Discount</b>:<br>   
+                            Admission is free on Fridays from 7 p.m. to 9 p.m.<br>
+                            Admission to the McKim rooms only is free during the following times: Tuesday, 3 p.m. to 5 p.m.; Friday, 7 p.m. to 9 p.m.; Sunday, 4 p.m to 6 p.m.
+                            </section>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="sunday tuesday wednesday thursday friday saturday manhattan discount" id="div6">
+                <input type="checkbox" name="museum" id="input6" class="input"> Museum of Chinese in America
+                    <div class="hidden">
+                        <!-- Days open -->
+                        <section class="days"><b>Days</b>:<br>
+                            Sunday: 11am-6pm<br>
+                            Tuesday: 11am-6pm<br>
+                            Wednesday: 11am-6pm<br>
+                            Thrusday: 11am-9pm<br>
+                            Friday: 11am-6pm<br>
+                            Saturday: 11am-6pm<br>
+                        </section>
+                    
+                        <!-- Borough -->
+                        <section class="borough"><b>Borough</b>:<br>        
+                            Manhattan
+                        </section>
+                    
+                        <!-- Museum discount -->
+                        <section class="last"><b>Discount</b>:<br>   
+                            Gallery addmission is free every first Thursday except on holidays.</section>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="sunday wednesday thursday friday saturday queens discount" id="div7">
+                <input type="checkbox" name="museum" id="input7" class="input"> Museum of the Moving Image
+                    <div class="hidden">
+                        <!-- Days open -->
+                        <section class="days"><b>Days</b>:<br>
+                            Sunday: 10:30am-6pm<br>
+                            Wednesday: 10:30am-5pm<br>
+                            Thrusday: 10:30am-5pm<br>
+                            Friday: 10:30am-8pm<br>
+                            Saturday: 10:30am-6pm<br>
+                        </section>
+                    
+                        <!-- Borough -->
+                        <section class="borough"><b>Borough</b>:<br>        
+                            Queens
+                        </section>
+                    
+                        <!-- Museum discount -->
+                        <section class="last"><b>Discount</b>:<br>   
+                            Free addmission on Fridays from 4pm-8pm.</section>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="sunday tuesday wednesday thursday friday saturday manhattan discount" id="div8">
+                <input type="checkbox" name="museum" id="input8" class="input"> Nicholas Roerich Museum
+                    <div class="hidden">
+                        <!-- Days open -->
+                        <section class="days"><b>Days</b>:<br>
+                            Sunday: 2pm-5pm<br>
+                            Tuesday: 12pm-4pm<br>
+                            Wednesday: 12pm-4pm<br>
+                            Thrusday: 12pm-4pm<br>
+                            Friday: 12pm-4pm<br>
+                            Saturday: 2pm-5pm<br>
+                        </section>
+                    
+                        <!-- Borough -->
+                        <section class="borough"><b>Borough</b>:<br>        
+                            Manhattan
+                        </section>
+                    
+                        <!-- Museum discount -->
+                        <section class="last"><b>Discount</b>:<br>   
+                            Free addmission<br> Concerts on most Sundays at 5pm.</section>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="sunday wednesday thursday friday saturday staten discount" id="div9">
+                <input type="checkbox" name="museum" id="input9" class="input"> Staten Island Museum
+                    <div class="hidden">
+                        <!-- Days open -->
+                        <section class="days"><b>Days</b>:<br>
+                            Sunday: 11am-5pm<br>
+                            Wednesday: 11am-5pm<br>
+                            Thrusday: 11am-5pm<br>
+                            Friday: 11am-5pm<br>
+                            Saturday: 11am-5pm<br>
+                        </section>
+                    
+                        <!-- Borough -->
+                        <section class="borough"><b>Borough</b>:<br>
+                            Staten Island
+                        </section>
+                    
+                        <!-- Museum discount -->
+                        <section class="last"><b>Discount</b>:<br>   
+                            Suggested donation.</section>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="sunday monday tuesday wednesday thursday friday saturday manhattan" id="div10">
+                <input type="checkbox" name="museum" id="input10" class="input"> Studio Museum
+                    <div class="hidden">
+                        <!-- Days open -->
+                        <section class="days"><b>Days</b>:<br>
+                            Sunday: 12pm-6pm<br>
+                            Monday: 12pm-6pm<br>
+                            Tuesday: 12pm-6pm<br>
+                            Wednesday: 12pm-6pm<br>
+                            Thrusday: 12pm-6pm<br>
+                            Friday: 12pm-6pm<br>
+                            Saturday: 12pm-6pm<br>
+                        </section>
+                    
+                        <!-- Borough -->
+                        <section class="borough"><b>Borough</b>:<br>        
+                            Manhattan
+                        </section>
+                    
+                        <!-- Museum discount -->
+                        <section class="last">
+                            *the Studio Museum galleries are closed during the construction of their new facilities, projected to continue through 2021</section>
+                    </div>
+                </div>
+            </li>
+        </ol>
+            
+            
+
+        <!-- Custom Lists link -->
+        <div id="customLists">
+            <!-- First list button and space -->
+            <p><button type="submit" id="addto1">Add to:</button> List 1</p>
+                <div id="customList1"></div>
+            <!-- Second list button and space -->
+            <p><button type="submit" id="addto2">Add to:</button> List 2</p>
+                <div id="customList2"></div>
+            <!-- Third list button and space -->
+            <p><button type="submit" id="addto3">Add to:</button> List 3</p>
+                <div id="customList3"></div>
+            
+            <!-- Link to list page (probably getting rid of this page and condensing to one page)
+            <a href="listsPage.html">View my lists</a> 
+        </div>
+            -->
+
+        <!-- Javascript link -->
+        <script type="text/javascript" src="data-json.js">
+        </script>
+<!-- Attaching json file to page   
+<script src="museumList.json?callback=showMuseums"></script> 
+-->
+    </body>
+</html>
+
+                                                  
+
+
+<!-- Test space -->
+<!--
+ Idea to make the checkboxes looks like buttons 
+<br>
+<input id="chk_sunday" type="checkbox" name="wpuf_post_tags[]" class="vis-hidden new-post-tags" value="Sunday" />
+<label for="chk_sunday">Sunday</label>
+
+<input id="chk_monday" type="checkbox" name="wpuf_post_tags[]" class="vis-hidden new-post-tags" value="Monday" />
+<label for="chk_Monday">Monday</label>
+
+<input id="chk_Tuesday" type="checkbox" name="wpuf_post_tags[]" class="vis-hidden new-post-tags" value="Tuesday" />
+<label for="chk_Tuesday">Tuesday</label><br><br>
+-->

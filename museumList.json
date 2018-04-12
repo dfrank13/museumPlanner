@@ -1,0 +1,185 @@
+{
+    "museums": [
+{
+    "Name": "The African Center",
+	"Website": "www.TheAfricaCenter.org"
+},
+{
+    "Name": "Alice Austen Museum",
+	"Website": "www.AliceAusten.org"
+},
+{
+    "Name": "Alley Pond Environmental Center",
+	"Website": "www.alleypond.com"
+},
+{
+    "Name": "American Academy of Arts and Letters",
+	"Website": "www.artsandletters.org"
+},
+{
+    "Name": "American Folk Art Museum",
+	"Website": "www.folkartmuseum.org"
+},
+{
+    "Name": "The American Irish Historical Society",
+    "Website": "www.aihs.org/"
+},
+{
+    "Name": "American Museum of Natural History",
+    "Website": "www.amnh.org/"
+},
+{
+    "Name": "American Numismatic Society",
+    "Website": "www.numismatics.org"
+},
+{
+    "Name": "Americas Society",
+    "Website": "www.as-coa.org"
+},
+{
+    "Name": "Asia Society Museum",
+    "Website": "www.asiasociety.org"
+},
+{
+    "Name": "Bartow & Pell Mansion Museum",
+    "Website": "www.bartowpellmansionmuseum.org"
+},
+{
+    "Name": "The Bayside Historical Society",
+    "Website": "www.baysidehistorical.org"
+},
+{
+    "Name": "Bronx County Historical Society",
+    "Website": "www.bronxhistoricalsociety.org"
+},
+{
+    "Name": "Bronx Museum of the Arts",
+    "Website": "www.bronxmuseum.org"
+},
+{
+    "Name": "Bronx Zoo & WCS",
+    "Website": "www.bronxzoo.com"
+},
+/*
+<a href="http://www.bbg.org/"> Brooklyn Botanic Garden </a>
+<a href="http://brooklynkids.org/"> Brooklyn Children&#x2032;s Museum </a>
+<a href="http://www.brooklynhistory.org/"> Brooklyn Historical Society </a>
+<a href="http://www.brooklynmuseum.org/home.php"> Brooklyn Museum </a>
+<a href="http://www.cjh.org/"> Center for Jewish History </a>
+<a href="http://centralparkzoo.com/"> Central Park Zoo &#x2013; WCS </a>
+<a href="http://cmany.org/"> Children&#x2032;s Museum of the Arts </a>
+<a href="http://www.cmom.org/"> Children&#x2032;s Museum of Manhattan </a>
+<a href="http://www.chinainstitute.org/"> China Institute Gallery </a>
+<a href="http://www.metmuseum.org/visit/visit-the-cloisters"> The Cloisters Museum and Gardens &#x2013; MMA </a>
+<a href="http://www.cooperhewitt.org/"> Cooper Hewitt, National Design Museum </a>
+<a href="http://www.daheshmuseum.org/"> Dahesh Museum </a>
+<a href="http://www.drawingcenter.org/"> The Drawing Center </a>
+<a href="http://dyckmanfarmhouse.org/"> Dyckman Farmhouse Museum </a>
+<a href="http://frauncestavernmuseum.org/"> Fraunces Tavern Museum </a>
+<a href="http://www.frick.org/"> The Frick Collection </a>
+<a href="http://pub1.andyswebtools.com/cgi-bin/p/awtp-home.cgi?d=garibaldi-meucci-museum/"> Garibaldi&#x2013;Meucci Museum </a>
+<a href="http://www.nps.gov/gate/index.htm"> Gateway National Recreation Area </a>
+<a href="http://www.historichousetrust.org/item.php?i_id=1 Gracie Mansion Conservancy </a>
+<a href="http://www.green-wood.com/"> Green-Wood </a>
+<a href="http://www.grolierclub.org/"> The Grolier Club </a>
+<a href="http://www.guggenheim.org/"> Solomon R. Guggenheim Museum </a>
+<a href="http://www.harbordefensemuseum.com/"> Harbor Defense Museum </a>
+<a href="http://www.hispanicsociety.org/"> Hispanic Society Museum and Library </a>
+<a href="http://www.historicrichmondtown.org"> Historic Richmond Town </a>
+<a href="http://www.icp.org/"> International Center of Photography </a>
+<a href="http://www.intrepidmuseum.org/"> Intrepid Sea, Air and Space Museum </a>
+<a href="http://www.tibetanmuseum.org/"> Jacques Marchais Museum of Tibetan Art </a>
+<a href="http://www.jcal.org/"> Jamaica Center for Arts and Learning </a>
+<a href="http://www.japansociety.org/"> Japan Society Gallery </a>
+<a href="http://thejewishmuseum.org/"> The Jewish Museum </a>
+<a href="http://www.louisarmstronghouse.org/"> Louis Armstrong House Museum </a>
+<a href="http://www.tenement.org/"> Lower East Side Tenement Museum </a>
+<a href="http://www.nps.gov/npnh/index.htm"> Manhattan Sites, National Park Service </a>
+<a href="http://merchantshouse.org/"> Merchant&#x2032;s House Museum </a>
+*/
+{
+	"Name": "The Metropolitan Museum of Art",
+	"Borough": "Manhattan",
+	"Days open": {
+        "Sunday": "10am-5:30pm",
+		"Monday": "10am-5:30pm", 
+		"Tuesday": "10am-5:30pm", 
+		"Wednesday": "10am-5:30pm",
+        "Thursday": "10am-5:30pm",
+        "Friday": "10am-9pm",
+        "Saturday": "10am-9pm"
+		},
+	"Admission": {
+		"Adult": "$24",
+        "Seniors (65 and over)": "$17",
+		"Student": "$12",
+        "Memebers and Patrons": "Free",
+        "Children (Under 12)": "Free"
+		},
+	"Discount": "Pay-what-you-wish for NY residents. General Admission tickets are valid for three consecutive days at the Met Fifth Avenue, The Met Breuer, and The Met Cloisters.",
+	"Website": "www.MetMuseum.org"
+	}
+/*
+<a href="http://www.themorgan.org/"> The Morgan Library and Museum </a>
+<a href="http://www.morrisjumel.org/"> Morris Jumel Mansion </a>
+<a href="http://www.mvhm.org/"> Mount Vernon Hotel Museum and Garden </a>
+<a href="http://www.mas.org/"> The Municipal Art Society of New York </a>
+<a href="http://www.elmuseo.org/"> El Museo del Barrio </a>
+<a href="http://www.moaf.org/"> Museum of American Finance </a>
+<a href="http://www.societyillustrators.org"> Museum of American Illustration </a>
+<a href="http://www.madmuseum.org/"> Museum of Arts and Design </a>
+<a href="http://www.mocanyc.org/"> Museum of Chinese in America </a>
+<a href="http://www.mcny.org/"> Museum of the City of New York </a>
+<a href="http://www.eldridgestreet.org/"> Museum at Eldridge Street </a>
+<a href="http://www.fitnyc.edu/museum.asp"> Museum at the Fashion Institute of Technology </a>
+<a href="http://www.mjhnyc.org"> Museum of Jewish Heritage - A Living Memorial to the Holocaust </a>
+<a href="http://www.moma.org"> The Museum of Modern Art </a>
+<a href="http://momaps1.org"> MoMA PS1 </a>
+<a href="http://www.movingimage.us/"> Museum of Moving Image </a>
+<a href="http://www.nationalacademy.org/"> National Academy Museum </a>
+<a href="http://jazzmuseuminharlem.org/"> National Jazz Museum in Harlem </a>
+<a href="http://www.americanindian.si.edu/"> The National Museum of the American Indian 
+Smithsonian Institution (NMAI) </a>
+<a href="http://www.neuegalerie.org/"> Neue Galerie New York </a>
+<a href="http://www.newmuseum.org/"> New Museum </a>
+<a href="http://nyam.org"> The New York Academy of Medicine </a>
+<a href="http://nyaquarium.com"> New York Aquarium &ndash; WCS </a>
+<a href="http://www.nybg.org"> New York Botanical Garden </a>
+<a href="http://www.nycfiremuseum.org"> New York City Fire Museum </a>
+<a href="http://www.nycpm.org/"> New York City Police Museum </a>
+<a href="http://nysci.org"> New York Hall of Science </a>
+<a href="https://www.nyhistory.org"> New-York Historical Society Museum &amp; Library </a>
+<a href="http://www.nypl.org/locations/lpa"> NYPL Library for the Performing Arts </a>
+<a href="http://www.nypl.org/locations/schomburg"> NYPL Schomburg Center for Research in Black Culture </a>
+<a href="http://www.nypl.org/about/locations/schwarzman/visitor-guide?hspace=286696&_opt=2575830098.259380086 NYPL Stephen A. Schwarzman Building </a>
+<a href="http://www.nytransitmuseum.org"> New York Transit Museum </a>
+<a href="http://www.noguchi.org"> The Noguchi Museum </a>
+<a href="http://www.paleycenter.org"> The Paley Center for Media </a>
+<a href="http://prospectparkzoo.com"> Prospect Park Zoo &ndash; WCS  </a>
+<a href="http://www.queensbotanical.org"> Queens Botanical Garden </a>
+<a href="http://www.queensfarm.org"> Queens County Farm Museum </a>
+<a href="http://www.queensmuseum.org"> Queens Museum of Art </a>
+<a href="http://www.wcs.org"> Queens Zoo &ndash; WCS </a>
+<a href="http://rubinmuseum.org"> Rubin Museum of Art </a>
+<a href="http://www.sculpture-center.org"> Sculpturecenter </a>
+<a href="http://skyscraper.org/index.htm"> The Skyscraper Museum </a>
+<a href="http://snug-harbor.org"> Snug Harbor Cultural Center and Botanical Garden </a>
+<a href="http://southstreetseaportmuseum.org"> South Street Seaport Museum </a>
+<a href="http://sichildrensmuseum.org"> Staten Island Children&#x2032;s Museum </a>
+<a href="http://www.statenislandmuseum.org"> Staten Island Museum </a>
+<a href="http://www.statenislandzoo.org"> Staten Island Zoological Society </a>
+<a href="http://www.nps.gov/stli/index.htm"> Statue of Liberty National Monument &#x26; Ellis Island Immigration Museum  </a>
+<a href="http://www.studiomuseum.org"> Studio Museum in Harlem </a>
+<a href="https://www.trinitywallstreet.org"> The Trinity Museum of the Parish of Trinity Church </a>
+<a href="http://ukrainianinstitute.org"> Ukrainian Institute of America </a>
+<a href="http://www.vomuseum.org"> Voelker Orth Museum </a>
+<a href="https://www.wavehill.org"> Wave Hill </a>
+<a href="http://whitney.org"> Whitney Museum of American Art </a>
+<a href="http://www.yumuseum.org"> Yeshiva University Museum </a>
+<a href="http://www.yivoinstitute.org"> Yivo Institute for Jewish Research </a>
+*/
+]
+}
+
+// information source: view-source:http://www.museumscouncil.org/mcnyc2_about.html
+// also consider: https://www.ny.com/museums/all.museums.html

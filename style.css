@@ -1,0 +1,76 @@
+.searchBox {
+    border: 1px solid lightgrey;
+    width: 620px;
+    margin: 5px;
+    padding: 10px;
+    font-family: arial;
+}
+.title {
+    font-weight: bold;
+}
+h3 {
+    text-align: center;
+}
+h1 {
+    text-align: center;
+}
+
+section.days {
+    position: absolute;
+    width: 200px;
+}
+
+section.borough {
+    position: absolute;
+    margin-left: 210px;
+}
+
+section.last {
+    position: relative;
+    width: 250px;
+    margin-left: 350px;
+    height: 150px;
+}
+
+/*drop down panel */
+.hidden {
+    position: relative;
+    background:lightgrey;
+    width: 620px;
+    padding: 10px
+}
+
+/* test space 
+
+.vis-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+
+/* select button styling
+label {
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  background: lightgrey;
+}
+
+input:focus + label {
+  border-color: blue;
+}
+
+input:checked + label {
+    background: lightpurple;
+}
+
+input:focus:checked + label {
+  border-color: green;
+}
+*/
