@@ -9,6 +9,8 @@ var saturday = document.getElementsByClassName("saturday");
 var manhattan = document.getElementsByClassName("manhattan");
 
 
+
+
 /********************************************************************** Add museums to custom lists ********************************************************/
 
 // Add to list 1
@@ -49,112 +51,31 @@ document.getElementById("addto3").addEventListener("click", function() {
 
 document.getElementById("search").addEventListener("click", function () {
     
+	/*************************************** Search bar **********************************/
+	
+	// https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_filter_list //
+	
+	
+	
 /************************************************************Start of Days in search (needs to be fixed) ********************************************************/
    
-    // search #sunday to see if box is checked
-    if (document.getElementById('sunday').checked) {
-        var manhattanDiv = document.getElementsByClassName('sunday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
-        }
-    } else {
-       var manhattanDiv = document.getElementsByClassName('sunday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
-        }
-    }
-    
-    // search #monday to see if box is checked
-    if (document.getElementById('monday').checked) { 
-        var manhattanDiv = document.getElementsByClassName('monday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
-        }
-    } else {
-       var manhattanDiv = document.getElementsByClassName('monday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
-        }
-    }
-    
-    // search #tuesday to see if box is checked
-    if (document.getElementById('tuesday').checked) {
-       var manhattanDiv = document.getElementsByClassName('tuesday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
-        }
-    } else {
-       var manhattanDiv = document.getElementsByClassName('tuesday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
-        }
-    }
-    
-    // search #wednesday to see if box is checked
-    if (document.getElementById('wednesday').checked) {
-        var manhattanDiv = document.getElementsByClassName('wednesday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
-        }
-    } else {
-       var manhattanDiv = document.getElementsByClassName('wednesday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
-        }
-    }
-    
-    // search #thursday to see if box is checked
-    if (document.getElementById('thursday').checked) {
-        var manhattanDiv = document.getElementsByClassName('thursday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
-        }
-    } else {
-       var manhattanDiv = document.getElementsByClassName('thursday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
-        }
-    }
-    
-    // search #friday to see if box is checked
-    if (document.getElementById('friday').checked) {
-       var manhattanDiv = document.getElementsByClassName('friday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
-        }
-    } else {
-       var manhattanDiv = document.getElementsByClassName('friday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
-        }
-    }
-    
-    // search #saturday to see if box is checked
-    if (document.getElementById('saturday').checked) {
-       var manhattanDiv = document.getElementsByClassName('saturday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
-        }
-    } else {
-       var manhattanDiv = document.getElementsByClassName('saturday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
-        }
-    }
+var sunday = document.getElementById("sunday").checked;
+var monday = document.getElementByID("monday").checked;
+var tuesday = document.getElementByID("tuesday").checked;
+var wednesday = document.getElementByID("wednesday").checked;
+var thrusday = document.getElementByID("thursday").checked;
+var friday = document.getElementByID("friday").checked;
+var saturday = document.getElementByID("saturday").checked;
+var manhattan = document.getElementByID("manhattan").checked;
+
+function check (sunday, monday, tuesday, wednesday, thursday, friday, saturday) {
+	//var array = listMuseumArray
+	for (int i = 0; i < listMuseumArray.length; i++) {
+		if (listMuseumArray[i].sunday==sunday && museum.monday=monday && museum.tuesday=tuesday && museum.wednesday=wednesday && museum.thursday=thursday &&  ) {
+			manhattanDiv.style.display="block";
+		}
+	}
+}
     
 
 /************************************************************Start of Boroughs in search ************************************************/

@@ -5,6 +5,10 @@
     padding: 10px;
     font-family: arial;
 }
+.header {
+	background: lightgrey;
+}
+
 .title {
     font-weight: bold;
 }
