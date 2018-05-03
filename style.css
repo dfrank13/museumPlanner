@@ -1,76 +1,49 @@
-.searchBox {
-    border: 1px solid lightgrey;
-    width: 620px;
-    margin: 5px;
-    padding: 10px;
+* {
     font-family: arial;
 }
-.title {
+
+.directions {
     font-weight: bold;
+    color: black;
 }
-h3 {
+
+.header {
+	background: #40e0d0;
+    color: white;
+}
+
+#subtitle {
     text-align: center;
 }
+
+.title {
+    font-weight: bold;
+    color: black;
+}
+
+.title:a:link {
+    color: mediumpurple;
+}
+
 h1 {
     text-align: center;
 }
 
-section.days {
-    position: absolute;
-    width: 200px;
-}
-
-section.borough {
-    position: absolute;
-    margin-left: 210px;
-}
-
-section.last {
-    position: relative;
-    width: 250px;
-    margin-left: 350px;
-    height: 150px;
-}
-
-/*drop down panel */
-.hidden {
-    position: relative;
-    background:lightgrey;
-    width: 620px;
-    padding: 10px
-}
-
-/* test space 
-
-.vis-hidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-}
-
-
-/* select button styling
 label {
-  margin: 10px;
-  padding: 5px;
-  border: none;
-  background: lightgrey;
+    font-size: 10px;
 }
 
-input:focus + label {
-  border-color: blue;
+#map {
+    height: 300px;
+    width: 100%;
 }
 
-input:checked + label {
-    background: lightpurple;
+#borough:label {
+    color: turquoise;
 }
 
-input:focus:checked + label {
-  border-color: green;
-}
+/* Color Pallet
+#40e0d0 = turquoise
+#d040e0 = fueshia
+#e0d040 = gold
 */

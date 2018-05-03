@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js"></script>
+        <title>My Lists</title>
+    </head>
+    <body>
+        <!-- Starting a grid -->
+        <div class="ui container">
+        
+        <!-- Menu bar -->
+        <div class="ui small menu">
+          <a id="showAbout" class="item">
+                    About
+                      </a>
+              <!-- Modal for About section -->
+              <div id="aboutModal" class="ui modal">
+                  <i class="close icon"></i>
+                  <div class="header">
+                    About
+                  </div>
+                  <div class="image content">
+                    <div class="ui medium image">
+                      <img src="metPic.JPG">
+                    </div>
+                    <div class="description">
+                      <div class="ui header">Welcome to the Museum Planner!</div>
+                        <p>This page was designed to help the thrifty traveler plan a day out in New York City. Choose one or several of the many insitutions and heritage sites listed on the main page.</p>
+                          <h4>Browse the list</h4>
+                            <p>Browse museums by selecting a day and marking which borough(s) your are interested in visiting. Click the search button when you have finished making your selections. If you already have a museum in mind, use the search bar to go straight to that museum. Clicking on a museum will open an info panel to learn more about hours, location, and any discounts the museum has to offer.</p>
+                          <h4>Make your own list</h4>
+                        <p>You can even create your own custom lists on the 'My Lists' page to better organize your search.</p>
+                    <p>Don't forget! While you're out having fun and learning something new, don't forget to support your local museum.</p>
+                    </div>
+                  </div>
+                  <div class="actions">
+                    <div class="ui ok button">
+                      Close
+                    </div>
+                  </div>
+                </div>
+<!------------------------End of about section------------>
+
+          <a href="index.html" class="item">
+            Home
+          </a>
+          <div class="right menu">
+            <div class="ui dropdown item">
+              Remove From: <i class="dropdown icon"></i>
+              <div class="menu">
+                <a class="item">Top Picks</a>
+                <a class="item">Girls outting</a>
+                <a class="item">Date night</a>
+              </div>
+            </div>
+            <div class="item">
+                <div class="ui button">Select List</div>
+            </div>
+          </div>
+        </div>
+<!-------------------End of Menu------------------------->
+        <!-- Title panel-->  
+        <div class="ui container header">
+			<h1>My Lists</h1>
+			<h3 id="subtitle"><i>Organize your searches</i></h3>
+		</div>
+            
+    <div class="ui grid">    
+        <div class="row">
+<!----------------Start of Lists ------------------------->
+            
+                <!-- First list -->
+            <div id="firstList" class="eight wide column">
+                <div class="ui segment">
+                    <div class="ui transparent input">
+                      <input type="text" value="Top Picks">
+                    </div>
+                    <!-- List one area -->
+                    <div id="customList1" class="ui container"></div>
+                </div>
+            </div>
+
+                <!-- Second List -->
+            <div id="secondList" class="eight wide column">
+                <div class="ui segment">
+                    <div class="ui transparent input">
+                      <input type="text" value="Girls' Outting">
+                    </div>
+                    <!-- List 2 area -->
+                    <div id="customList2" class="ui container"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+                <!-- Third List -->
+            <div id="thirdList" class="eight wide column">
+                <div class="ui segment">
+                    <div class="ui transparent input">
+                      <input type="text" value="Date Night">
+                    </div>
+                    <!-- List 3 area -->
+                    <div id="customList3" class="ui container"></div>
+                </div>
+            </div>  
+
+                <!-- Fourth List -->
+            <div id="thirdList" class="eight wide column">
+                <div class="ui segment">
+                    <div class="ui transparent input">
+                      <input type="text" placeholder="Add new list">
+                    </div>
+                    <!-- List 4 area -->
+                    <div id="customList3" class="ui container"></div>
+                </div>
+            </div>
+        </div>
+                
+<!-------- End of two grid ---------------------->
+        
+    </div>
+</div>
+
+        <!-- Link to js -->
+        <script type="text/javascript" src="data-json.js">
+        </script>
+        
+<!-- Semantics javascript -->
+<script>
+    $('.ui.dropdown').dropdown();
+    $('#showAbout').click(function(){
+        $('#aboutModal').modal('show');
+    });
+</script>
+    </body>
+</html>

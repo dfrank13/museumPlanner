@@ -1,201 +1,90 @@
-// Days of the week as divs in the Museum list
-var sunday = document.getElementsByClassName("sunday");
-var monday = document.getElementsByClassName("monday");
-var tuesday = document.getElementsByClassName("tuesday");
-var wednesday = document.getElementsByClassName("wednesday");
-var thrusday = document.getElementsByClassName("thursday");
-var friday = document.getElementsByClassName("friday");
-var saturday = document.getElementsByClassName("saturday");
-var manhattan = document.getElementsByClassName("manhattan");
+/**************************** Search bar ********************************************************/
+	
+function searchName() {
+    var input, filter, ol, li, a, i;
+    input = document.getElementById("museumName");
+    filter = input.value.toUpperCase();
+    ol = document.getElementById("museums");
+    li = ol.getElementsByClassName("museumContent");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
 
-
-/********************************************************************** Add museums to custom lists ********************************************************/
-
-// Add to list 1
-document.getElementById("addto1").addEventListener("click", function() {
-    if (document.getElementById('input1').checked) {
-        var firstMuseum = document.getElementById('div1');
-        var listOne = document.getElementById('customList1');
-        listOne.innerHTML = firstMuseum.innerHTML;
+        }
     }
-    else {}
-    });
+}	
 
-// Add to list 2
-document.getElementById("addto2").addEventListener("click", function() {
-    if (document.getElementById('input1').checked) {
-        var firstMuseum = document.getElementById('div1');
-        var listOne = document.getElementById('customList2');
-        listOne.innerHTML = firstMuseum.innerHTML;
-    }
-    else {}
-    });
+// Reference:   https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_filter_list 
 
-// Add to list 3
-document.getElementById("addto3").addEventListener("click", function() {
-    if (document.getElementById('input1').checked) {
-        var firstMuseum = document.getElementById('div1');
-        var listOne = document.getElementById('customList3');
-        listOne.innerHTML = firstMuseum.innerHTML;
-    }
-    else {}
-    });
+/************************************************************ Search days in dropdown (doesn't work as is) ********************************************************/
+  
+    // find dropdown list
+    var dropDown =  document.getElementById('searchDays');
+    // find day selected from dropdown
+   var daySelected = dropDown.options[dropDown.selectedIndex].value;
+    // go through the master list of museums
+    var museList = document.getElementsByClassName('museList');
 
-
-
+dropDown.addEventListener('onchange', function() {
+    
+    for (var i = 0; i < museList.length; i++) {
+            if (museList[i].getElementsByClassName(daySelected).length != 0) {
+                museList[i].style.display = "block";
+            } else {
+                museList[i].style.display = "none";
+            }
+        } 
+});
+ 
 
 /********************************************************************** Activate search button ****************************************************************************************************************/
 
 
-document.getElementById("search").addEventListener("click", function () {
-    
-/************************************************************Start of Days in search (needs to be fixed) ********************************************************/
-   
-    // search #sunday to see if box is checked
-    if (document.getElementById('sunday').checked) {
-        var manhattanDiv = document.getElementsByClassName('sunday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
-        }
-    } else {
-       var manhattanDiv = document.getElementsByClassName('sunday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
-        }
-    }
-    
-    // search #monday to see if box is checked
-    if (document.getElementById('monday').checked) { 
-        var manhattanDiv = document.getElementsByClassName('monday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
-        }
-    } else {
-       var manhattanDiv = document.getElementsByClassName('monday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
-        }
-    }
-    
-    // search #tuesday to see if box is checked
-    if (document.getElementById('tuesday').checked) {
-       var manhattanDiv = document.getElementsByClassName('tuesday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
-        }
-    } else {
-       var manhattanDiv = document.getElementsByClassName('tuesday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
-        }
-    }
-    
-    // search #wednesday to see if box is checked
-    if (document.getElementById('wednesday').checked) {
-        var manhattanDiv = document.getElementsByClassName('wednesday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
-        }
-    } else {
-       var manhattanDiv = document.getElementsByClassName('wednesday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
-        }
-    }
-    
-    // search #thursday to see if box is checked
-    if (document.getElementById('thursday').checked) {
-        var manhattanDiv = document.getElementsByClassName('thursday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
-        }
-    } else {
-       var manhattanDiv = document.getElementsByClassName('thursday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
-        }
-    }
-    
-    // search #friday to see if box is checked
-    if (document.getElementById('friday').checked) {
-       var manhattanDiv = document.getElementsByClassName('friday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
-        }
-    } else {
-       var manhattanDiv = document.getElementsByClassName('friday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
-        }
-    }
-    
-    // search #saturday to see if box is checked
-    if (document.getElementById('saturday').checked) {
-       var manhattanDiv = document.getElementsByClassName('saturday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
-        }
-    } else {
-       var manhattanDiv = document.getElementsByClassName('saturday');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
-        }
-    }
-    
 
-/************************************************************Start of Boroughs in search ************************************************/
+document.getElementById("search").addEventListener("click", function () {
+
+
+/****************************************************************************** Search boroughs *****************************************************************/
 
     // search #bronx to see if box is checked
     if (document.getElementById('bronx').checked) {
-       var manhattanDiv = document.getElementsByClassName('bronx');
+       var bronxDiv = document.getElementsByClassName('bronx');
         var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
+        for (i=0; i<bronxDiv.length; i++){
+            bronxDiv[i].style.display="";
         }
     } else {
-       var manhattanDiv = document.getElementsByClassName('bronx');
+       var bronxDiv = document.getElementsByClassName('bronx');
         var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
+        for (i=0; i<bronxDiv.length; i++){
+            bronxDiv[i].style.display="none";
         }
     }
     
     // search #brooklyn to see if box is checked
     if (document.getElementById('brooklyn').checked) {
-       var manhattanDiv = document.getElementsByClassName('brooklyn');
+       var brooklynDiv = document.getElementsByClassName('brooklyn');
         var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
+        for (i=0; i<brooklynDiv.length; i++){
+            brooklynDiv[i].style.display="";
         }
     } else {
-       var manhattanDiv = document.getElementsByClassName('brooklyn');
+       var brooklynDiv = document.getElementsByClassName('brooklyn');
         var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
+        for (i=0; i<brooklynDiv.length; i++){
+            brooklynDiv[i].style.display="none";
         }
     }
-
     
     // search #manhattan to see if box is checked
     if (document.getElementById('manhattan').checked) {
        var manhattanDiv = document.getElementsByClassName('manhattan');
         var i;
         for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
+            manhattanDiv[i].style.display="";
         }
     } else {
        var manhattanDiv = document.getElementsByClassName('manhattan');
@@ -207,55 +96,94 @@ document.getElementById("search").addEventListener("click", function () {
     
     // search #queens to see if box is checked
     if (document.getElementById('queens').checked) {
-       var manhattanDiv = document.getElementsByClassName('queens');
+       var queensDiv = document.getElementsByClassName('queens');
         var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
+        for (i=0; i<queensDiv.length; i++){
+            queensDiv[i].style.display="";
         }
     } else {
-       var manhattanDiv = document.getElementsByClassName('queens');
+       var queensDiv = document.getElementsByClassName('queens');
         var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
+        for (i=0; i<queensDiv.length; i++){
+            queensDiv[i].style.display="none";
         }
     }
 
     // search #staten to see if box is checked
     if (document.getElementById('staten').checked) {
-       var manhattanDiv = document.getElementsByClassName('staten');
+       var statenDiv = document.getElementsByClassName('staten');
         var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
+        for (i=0; i<statenDiv.length; i++){
+            statenDiv[i].style.display="";
         }
     } else {
-       var manhattanDiv = document.getElementsByClassName('staten');
+       var statenDiv = document.getElementsByClassName('staten');
         var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
+        for (i=0; i<statenDiv.length; i++){
+            statenDiv[i].style.display="none";
         }
     }
-
-/*************************************************************************** Discount checkbox (needs to be fixed)********************************************************/
-    /*
-    if (document.getElementById('discount').checked) {
-       var manhattanDiv = document.getElementsByClassName('discount');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="block";
-        }
-    } else {
-       var manhattanDiv = document.getElementsByClassName('discount');
-        var i;
-        for (i=0; i<manhattanDiv.length; i++){
-            manhattanDiv[i].style.display="none";
-        }
-    }
-    */
-    
 });
 
+
+/************************************************************************ Enter selected museums to first lists (not finished, description included in comment) *********************************************************/
+
 /*
-// call up museumList.json and attach to main page
+// if #addto1 is selected then search through museum list for checked boxes. If #amnhBox is checked, add #amnh to #customList1
+
+// List names in dropdown
+var addto1 = document.getElementById('addto1');
+var addto2 = document.getElementById('addto2');
+var addto3 = document.getElementById('addto3');
+
+
+// Button to enter museums into list
+document.getElementById("enterSelected").addEventListener("click", function () {
+    
+    if (document.getElementById('amnhBox').checked) {
+        var firstMuseum = document.getElementById('amnh');
+        var listOne = document.getElementById('customList3');
+        listOne.innerHTML = firstMuseum.innerHTML;
+    }
+    else {}
+});
+   
+// Add to list 1
+document.getElementById("addto1").addEventListener("click", function() {
+    if (document.getElementById('amnhBox').checked) {
+        var firstMuseum = document.getElementById('amnh');
+        var listOne = document.getElementById('customList1');
+        listOne.innerHTML = firstMuseum.innerHTML;
+    }
+    else {}
+    });
+
+// Add to list 2
+document.getElementById("addto2").addEventListener("click", function() {
+    if (document.getElementById('amnhBox').checked) {
+        var firstMuseum = document.getElementById('amnh');
+        var listOne = document.getElementById('customList2');
+        listOne.innerHTML = firstMuseum.innerHTML;
+    }
+    else {}
+    });
+
+// Add to list 3
+document.getElementById("addto3").addEventListener("click", function() {
+    if (document.getElementById('amnhBox').checked) {
+        var firstMuseum = document.getElementById('amnh');
+        var listOne = document.getElementById('customList3');
+        listOne.innerHTML = firstMuseum.innerHTML;
+    }
+    else {}
+    });
+*/
+
+/************************************************************************call up museumList.json and attach to main page**********************************************************/
+
+// This section wasn't finished since the code for the sample 10 museums wasn't complete still.
+
+/*
 $(function() { 
     var $museums = $('#museums');
     $.ajax({

@@ -2,314 +2,843 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <!-- stylesheet the original -->
         <link rel="stylesheet" type="text/css" href="style.css">
+        <!-- Semantic UI stylesheets -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js"></script>
         <title>The Museum Planner</title>
     </head>
     <body>
+        <!-- Starting a grid -->
+        <div class="ui container">
         
-        <!-- Search Box -->
-        <div class="searchBox">
-            <p><span class="title">Museum Name: </span><input type="text" placeholder="search"></span></p>
-    
-            <!-- Days checkboxes -->
-            <span class="title">Days: </span>
-            <form id="days">
-                <input type="checkbox" name="days" value="Sunday" id="sunday" CHECKED> Sunday 
-                <input type="checkbox" name="days" value="Monday" id="monday" CHECKED> Monday
-                <input type="checkbox" name="days" value="Tuesday" id="tuesday" CHECKED> Tuesday
-                <input type="checkbox" name="days" value="Wednesday" id="wednesday" CHECKED> Wednesday
-                <input type="checkbox" name="days" value="Thursday" id="thursday" CHECKED> Thursday
-                <input type="checkbox" name="days" value="Friday" id="friday" CHECKED> Friday
-                <input type="checkbox" name="days" value="Saturday" id="saturday" CHECKED> Saturday
-            </form>
-               
-            <!-- boroughs textboxes -->
-            <p id="borough"><span class="title">Borough: </span><br>
-                <input type="checkbox" name="borough" value="Bronx" id="bronx" CHECKED> Bronx <input type="checkbox" name="borough" value="Brooklyn" id="brooklyn" CHECKED> Brooklyn <input type="checkbox" name="borough" value="Manhattan" id="manhattan" CHECKED> Manhattan <input type="checkbox" name="borough" value="Queens" id="queens" CHECKED> Queens <input type="checkbox" name="borough" id="staten" value="Staten" CHECKED> Staten Island</p>
-    
-            <!-- discounts checkbox -->
-            <p id="discount"><span class="title">Free or discounted options: </span><br>
-                <input type="checkbox" name="discount" value="discount"></p>
-            <!-- Search Button -->
-            <button id="search">Search</button>
+        <!-- Menu bar -->
+        <div class="ui small menu">
+          <a id="showAbout" class="item">
+                    About
+                      </a>
+              <!-- Modal for About section -->
+              <div id="aboutModal" class="ui modal">
+                  <i class="close icon"></i>
+                  <div class="header">
+                    About
+                  </div>
+                  <div class="image content">
+                    <div class="ui medium image">
+                      <img src="metPic.JPG">
+                    </div>
+                    <div class="description">
+                      <div class="ui header">Welcome to the Museum Planner!</div>
+                        <p>This page was designed to help the thrifty traveler plan a day out in New York City. Choose one or several of the many insitutions and heritage sites listed on the main page.</p>
+                          <h4>Browse the list</h4>
+                            <p>Browse museums by selecting a day and marking which borough(s) your are interested in visiting. Click the search button when you have finished making your selections. If you already have a museum in mind, use the search bar to go straight to that museum. Clicking on a museum will open an info panel to learn more about hours, location, and any discounts the museum has to offer.</p>
+                          <h4>Make your own list</h4>
+                        <p>You can even create your own custom lists on the 'My Lists' page to better organize your search.</p>
+                    <p>Don't forget! While you're out having fun and learning something new, be sure to support your local museum.</p>
+                    </div>
+                  </div>
+                  <div class="actions">
+                    <div id="closeAbout" class="ui ok button">
+                      Close
+                    </div>
+                  </div>
+                </div>
+
+          <a href="listsPage.html" class="item">
+            My Lists
+          </a>
+    <!--------- Drop down in menu bar ---------------->
+          <div class="right menu">
+            <div class="ui selection dropdown item">
+                <input type="hidden" name="listOptions">
+                <!-- Default dropdown name -->
+                <div class="default text">Add to: (choose desired list)</div>
+                <i class="dropdown icon"></i>
+                <!-- List items -->
+              <div class="menu">
+                <a id="addto1" class="item" data-value="0">Top Picks</a>
+                <a id="addto2" class="item" data-value="1">Girls outting</a>
+                <a id="addto3" class="item" data-value="2">Date night</a>
+                <a class="item" data-value="3">+ Add new list</a>
+              </div>
+            </div>
+            <div class="item">
+                <!-- List selection button -->
+                <div class="ui button" id="enterSelected">Enter Selected</div>
+            </div>
+          </div>
         </div>
-
-        <!--------------------------------------------- The map from carto will probably be replaced with API from Google maps so that I have more options to customize----------------------------------------------------->
-        <br>
-        <iframe width="700px" height="520" frameborder="0" src="https://dfrank13.carto.com/builder/7093b261-fcda-4907-99d9-d39b740d271d/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
-
-
-        <!---------------------------------------------------- The museum list ---------------------------------------------------------------------------------------------------->
-        <p><span class="title">Museum List</span></p>
-        <ol id="museums">
-            <li>
-                <div class="sunday monday tuesday wednesday thursday friday saturday manhattan discount" id="div1">
-                <input type="checkbox" name="div1" id="input1" class="input"> American Museum of Natural History
-                    <div class="hidden">
-                        <!-- Days open -->
-                        <section class="days"><b>Days</b>:<br>
-                            Sunday: 10am-5:45pm<br>
-                            Monday: 10am-5:45pm<br>
-                            Tuesday: 10am-5:45pm<br>
-                            Wednesday: 10am-5:45pm<br>
-                            Thrusday: 10am-5:45pm<br>
-                            Friday: 10am-5:45pm<br>
-                            Saturday: 10am-5:45pm<br>
-                        </section>
-                    
-                        <!-- Borough -->
-                        <section class="borough"><b>Borough</b>:<br>        
-                            Manhattan
-                        </section>
-                    
-                        <!-- Museum discount -->
-                        <section class="last"><b>Discount</b>:<br>   
-                            Suggested donation, at museum ticket counter only.</section>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="sunday wednesday thursday friday saturday bronx discount" id="div2">
-                <input type="checkbox" name="museum" id="input2" class="input"> Bronx Museum of the Arts
-                    <div class="hidden">
-                        <!-- Days open -->
-                        <section class="days"><b>Days</b>:<br>
-                            Sunday: 11am-6pm<br>
-                            Wednesday: 1pm-6pm<br>
-                            Thrusday: 11am-6pm<br>
-                            Friday: 11am-8pm<br>
-                            Saturday: 11am-6pm<br>
-                        </section>
-                    
-                        <!-- Borough -->
-                        <section class="borough"><b>Borough</b>: <div class="bronx">Bronx</div></section>
-                    
-                        <!-- Museum discount -->
-                        <section class="last"><b>Discount</b>: <div class="discount">Museum is free to everyone.</div></section>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="sunday wednesday thursday friday saturday brooklyn discount" id="div3">
-                <input type="checkbox" name="museum" id="input3" class="input"> Brooklyn Museum
-                    <div class="hidden">
-                        <!-- Days open -->
-                        <section class="days"><b>Days</b>:<br>
-                            Sunday: 11am-6pm<br>
-                            Wednesday: 11am-6pm<br>
-                            Thrusday: 11am-10pm<br>
-                            Friday: 11am-6pm<br>
-                            Saturday: 11am-6pm<br>
-                        </section>
-                    
-                        <!-- Borough -->
-                        <section class="borough"><b>Borough</b>:<br>        
-                            Brooklyn
-                        </section>
-                    
-                        <!-- Museum discount -->
-                        <section class="last"><b>Discount</b>:<br>   
-                            Suggested donation at museum ticket counter only. First Saturday of the month (except September) is free and includes events at the museum.</section>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="sunday monday tuesday wednesday thursday friday saturday manhattan discount" id="div4">
-                <input type="checkbox" name="museum" id="input4" class="input"> Metropolitan Museum of Art
-                    <div class="hidden">
-                        <!-- Days open -->
-                        <section class="days"><b>Days</b>:<br>
-                            Sunday: 10am-5:30pm<br>
-                            Monday: 10am-5:30pm<br>
-                            Tuesday: 10am-5:30pm<br>
-                            Wednesday: 10am-5:30pm<br>
-                            Thrusday: 10am-5:30pm<br>
-                            Friday: 10am-9pm<br>
-                            Saturday: 10am-9pm<br>
-                        </section>
-                    
-                        <!-- Borough -->
-                        <section class="borough"><b>Borough</b>:<br>        
-                            Manhattan
-                        </section>
-                    
-                        <!-- Museum discount -->
-                        <section class="last"><b>Discount</b>:<br>   
-                            Suggested donation for New York residents. <br>General Admission tickets are valid for three consecutive days at the Met Fifth Avenue, The Met Breuer, and The Met Cloisters.</section>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="sunday tuesday wednesday thursday friday saturday manhattan discount" id="div5">
-                <input type="checkbox" name="museum" id="input5" class="input"> The Morgan Library and Museum
-                    <div class="hidden">
-                        <!-- Days open -->
-                        <section class="days"><b>Days</b>:<br>
-                            Sunday: 11am-6pm<br>
-                            Tuesday: 10:30am-5pm<br>
-                            Wednesday: 10:30am-5pm<br>
-                            Thrusday: 10:30am-5pm<br>
-                            Friday: 10:30am-9pm<br>
-                            Saturday: 10am-6pm<br>
-                        </section>
-                    
-                        <!-- Borough -->
-                        <section class="borough"><b>Borough</b>:<br>        
-                            Manhattan
-                        </section>
-                    
-                        <!-- Museum discount -->
-                        <section class="last"><b>Discount</b>:<br>   
-                            Admission is free on Fridays from 7 p.m. to 9 p.m.<br>
-                            Admission to the McKim rooms only is free during the following times: Tuesday, 3 p.m. to 5 p.m.; Friday, 7 p.m. to 9 p.m.; Sunday, 4 p.m to 6 p.m.
-                            </section>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="sunday tuesday wednesday thursday friday saturday manhattan discount" id="div6">
-                <input type="checkbox" name="museum" id="input6" class="input"> Museum of Chinese in America
-                    <div class="hidden">
-                        <!-- Days open -->
-                        <section class="days"><b>Days</b>:<br>
-                            Sunday: 11am-6pm<br>
-                            Tuesday: 11am-6pm<br>
-                            Wednesday: 11am-6pm<br>
-                            Thrusday: 11am-9pm<br>
-                            Friday: 11am-6pm<br>
-                            Saturday: 11am-6pm<br>
-                        </section>
-                    
-                        <!-- Borough -->
-                        <section class="borough"><b>Borough</b>:<br>        
-                            Manhattan
-                        </section>
-                    
-                        <!-- Museum discount -->
-                        <section class="last"><b>Discount</b>:<br>   
-                            Gallery addmission is free every first Thursday except on holidays.</section>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="sunday wednesday thursday friday saturday queens discount" id="div7">
-                <input type="checkbox" name="museum" id="input7" class="input"> Museum of the Moving Image
-                    <div class="hidden">
-                        <!-- Days open -->
-                        <section class="days"><b>Days</b>:<br>
-                            Sunday: 10:30am-6pm<br>
-                            Wednesday: 10:30am-5pm<br>
-                            Thrusday: 10:30am-5pm<br>
-                            Friday: 10:30am-8pm<br>
-                            Saturday: 10:30am-6pm<br>
-                        </section>
-                    
-                        <!-- Borough -->
-                        <section class="borough"><b>Borough</b>:<br>        
-                            Queens
-                        </section>
-                    
-                        <!-- Museum discount -->
-                        <section class="last"><b>Discount</b>:<br>   
-                            Free addmission on Fridays from 4pm-8pm.</section>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="sunday tuesday wednesday thursday friday saturday manhattan discount" id="div8">
-                <input type="checkbox" name="museum" id="input8" class="input"> Nicholas Roerich Museum
-                    <div class="hidden">
-                        <!-- Days open -->
-                        <section class="days"><b>Days</b>:<br>
-                            Sunday: 2pm-5pm<br>
-                            Tuesday: 12pm-4pm<br>
-                            Wednesday: 12pm-4pm<br>
-                            Thrusday: 12pm-4pm<br>
-                            Friday: 12pm-4pm<br>
-                            Saturday: 2pm-5pm<br>
-                        </section>
-                    
-                        <!-- Borough -->
-                        <section class="borough"><b>Borough</b>:<br>        
-                            Manhattan
-                        </section>
-                    
-                        <!-- Museum discount -->
-                        <section class="last"><b>Discount</b>:<br>   
-                            Free addmission<br> Concerts on most Sundays at 5pm.</section>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="sunday wednesday thursday friday saturday staten discount" id="div9">
-                <input type="checkbox" name="museum" id="input9" class="input"> Staten Island Museum
-                    <div class="hidden">
-                        <!-- Days open -->
-                        <section class="days"><b>Days</b>:<br>
-                            Sunday: 11am-5pm<br>
-                            Wednesday: 11am-5pm<br>
-                            Thrusday: 11am-5pm<br>
-                            Friday: 11am-5pm<br>
-                            Saturday: 11am-5pm<br>
-                        </section>
-                    
-                        <!-- Borough -->
-                        <section class="borough"><b>Borough</b>:<br>
-                            Staten Island
-                        </section>
-                    
-                        <!-- Museum discount -->
-                        <section class="last"><b>Discount</b>:<br>   
-                            Suggested donation.</section>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="sunday monday tuesday wednesday thursday friday saturday manhattan" id="div10">
-                <input type="checkbox" name="museum" id="input10" class="input"> Studio Museum
-                    <div class="hidden">
-                        <!-- Days open -->
-                        <section class="days"><b>Days</b>:<br>
-                            Sunday: 12pm-6pm<br>
-                            Monday: 12pm-6pm<br>
-                            Tuesday: 12pm-6pm<br>
-                            Wednesday: 12pm-6pm<br>
-                            Thrusday: 12pm-6pm<br>
-                            Friday: 12pm-6pm<br>
-                            Saturday: 12pm-6pm<br>
-                        </section>
-                    
-                        <!-- Borough -->
-                        <section class="borough"><b>Borough</b>:<br>        
-                            Manhattan
-                        </section>
-                    
-                        <!-- Museum discount -->
-                        <section class="last">
-                            *the Studio Museum galleries are closed during the construction of their new facilities, projected to continue through 2021</section>
-                    </div>
-                </div>
-            </li>
-        </ol>
             
+        <!-- Banner for the Museum Planner -->
+        <div class="ui container header">
+			<h1>The Museum Planner</h1>
+			<h3 id="subtitle"><i>Search the list to plan your NYC museum adventure today!</i></h3>
+		</div>
+        
+        <div class="ui two column grid">
+<!------------ Start of Search Box ----------------------->
+        <div class="column">
+        <div class="ui segment">
+        <div class="searchBox">
+            <p class="directions">Browse museums here:</p>
             
+            <!-- Days dropdown menu -->
+        <select name="days" class="ui dropdown" id="searchDays">
+            <option value="select">-- Select a day --</option>
+            <option value="sunday">Sunday</option>
+            <option value="monday">Monday</option>
+            <option value="tuesday">Tuesday</option>
+            <option value="wednesday">Wednesday</option>
+            <option value="thursday">Thursday</option>
+            <option value="friday">Friday</option>
+            <option value="saturday">Saturday</option>
+        </select>
+            
+            <!-- boroughs checkboxes -->
+    <p id="borough"><span class="title"><br>Borough: </span>
+            <!-- Bronx checkbox -->
+            <div class="ui checked checkbox">
+                <input type="checkbox" checked="" id="bronx"> 
+                <label>Bronx</label>
+            </div>
+            <!-- Brooklyn checkbox -->
+            <div class="ui checked checkbox">
+                <input type="checkbox" checked="" id="brooklyn"> 
+                <label>Brooklyn</label>
+            </div>
+            <!-- Manhattan checkbox -->
+            <div class="ui checked checkbox">
+                <input type="checkbox" checked="" id="manhattan"> 
+                <label>Manhattan</label>
+            </div>
+            <!-- Queens checkbox -->
+            <div class="ui checked checkbox">
+                <input type="checkbox" checked="" id="queens"> 
+                <label>Queens</label>
+            </div>
+            <!-- Staten Island checkbox -->
+            <div class="ui checked checkbox">
+                <input type="checkbox" checked="" id="staten"> 
+                <label>Staten Island</label>
+            </div>
+        </p>
+    
+            <!-- Search Button -->
+        <button id="search" class="ui button">Search</button>
+            
+        <div class="directions"><br>Or look for a specific museum here:<br>
+        </div>
+        <!-- Search Bar -->
+        <div class="ui input">
+            <input type="text" onkeyup="searchName()" placeholder="Enter museum name" id="museumName">
+        </div>
+    </div> 
+</div>
 
-        <!-- Custom Lists link -->
+
+        <!------------------------------ API from Google maps ----------------------------------------------->
+        <div id="map"></div>
+        <script>
+            function initMap() {
+                
+               // Map options
+                var options = {
+                    zoom:10,
+                    center:{lat:40.71297,lng:-74.00367},
+                    styles:
+                    [
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#f5f5f5"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#f5f5f5"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#bdbdbd"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#eeeeee"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e5e5e5"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#ffffff"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dadada"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e5e5e5"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#eeeeee"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#c9c9c9"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#40e0d0"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  }
+]
+                } 
+                // New map
+                var map = new google.maps.Map(document.getElementById("map"), options);
+                
+                //AMNH
+                addMarker({
+                    coords:{lat:40.78121,lng:-73.97414},
+                    content:'<a href="https://www.amnh.org">American Museum of Natural History</a><br>588 Broadway #503<br>New York 10012'
+                });
+                //Bronx Museum
+                addMarker({
+                    coords:{lat:40.83144,lng:-73.91982},
+                    content:'<a href="http://www.bronxmuseum.org">Bronx Museum of the Arts</a><br>1040 Grand Concourse<br>Bronx, NY 10456'
+                    });
+                // Brooklyn Museum
+                addMarker({
+                    coords:{lat:40.67117,lng:-73.96356},
+                    content:'<a href="https://www.brooklynmuseum.org">Brooklyn Museum</a><br>200 Eastern Parkway<br>New York City, NY 11238'
+                });
+                // The Met
+                addMarker({
+                    coords:{lat:40.77931,lng:-73.96334},
+                    content: '<a href="https://www.metmuseum.org">The Metropolitan Museum of Art</a><br>1000 Fifth Avenue<br>New York, NY 10028'
+                });
+                // The Morgan
+                addMarker({
+                    coords:{lat:40.74923,lng:-73.98144},
+                    content:'<a href="https://www.themorgan.org">The Morgan Library and Museum</a><br>225 Madison Ave<br>New York, NY 10016'
+                });
+                // MOCA
+                addMarker({
+                    coords:{lat:40.71938,lng:-73.99904},
+                    content:'<a href="http://www.mocanyc.org">The Museum of Chinese in America</a><br>215 Centre St<br>New York, NY 10013'
+                });
+                // MoMI
+                addMarker({
+                    coords:{lat:40.75638,lng:-73.92386},
+                    content:'<a href="http://www.movingimage.us">Museum of the Moving Image</a><br>36-01 35 Avenue at 37 Street<br>Astoria, NY 11106'
+                });
+                // Roerich
+                addMarker({
+                    coords:{lat:40.80292,lng:-73.96905},
+                    content:'<a href="http://www.roerich.org">Nicholas Roerich Museum</a><br>319 W 107th St<br>New York, NY 10025'
+                });
+                // Staten Is Museum
+                addMarker({
+                    coords:{lat:40.64426,lng:-74.0779},
+                    content:'<a href="http://www.statenislandmuseum.org">The Staten Island Museum</a><br>75 Stuyvesant Place<br>Staten Island, NY 10301'
+                });
+                // Studio Museum
+                addMarker({
+                    coords:{lat:40.80825,lng:-73.94772},
+                    content:'<a href="https://www.studiomuseum.org">The Studio Museum</a><br>144 West 125th Street<br>New York, NY 10027'
+                });
+                
+                // Add marker function
+                function addMarker(props) {
+                    var marker = new google.maps.Marker({
+                    position:props.coords,
+                    map:map,
+                    icon: 'map_pin.png'
+                });
+                    
+                // Check content
+                    if (props.content){
+                        var infoWindow = new google.maps.InfoWindow({
+                        content:props.content
+                        });
+                
+                        marker.addListener('click', function(){
+                        infoWindow.open(map, marker);
+                        });
+                    }
+                }
+            }
+        </script>
+        <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1NtM0ycZeYPQZNO38elTakwEoI6AEuos&callback=initMap">
+    </script>
+
+        <!-- API key
+        AIzaSyB1NtM0ycZeYPQZNO38elTakwEoI6AEuos
+        -->
+<!-- bottom of column 1 -->
+</div>
+            
+<!--------------------------------------------------------------- The museum list and start of column 2---------------------------------------------------------------------------------->
+ <div class="column">
+     <div class="ui segment" id="museums">
+         
+<!------------------------ Start of accordian ---------------------------------->
+    <div class="ui styled accordion">
+        
+        <!-- American Museum of Natural History -->
+         <section class="museumContent" id="amnh"> 
+         <div class="title museList manhattan sunday monday tuesday wednesday thursday friday saturday">
+             <!-- Checkbox -->
+             <div class="ui right checkbox">
+              <input type="checkbox" name="amnhBox" id="amnhBox">
+              <label></label>
+            </div>
+             <!-- Title panel -->
+            <a href="#">American Museum of Natural History</a>
+          </div>
+          <div class="content">
+            <p class="transition hidden">
+                <div class="ui two column grid">
+                <!-- Days open -->
+                <div class="column">
+                    <b>Days</b>:<br>
+                    Sunday: 10am-5:45pm<br>
+                    Monday: 10am-5:45pm<br>
+                    Tuesday: 10am-5:45pm<br>
+                    Wednesday: 10am-5:45pm<br>
+                    Thrusday: 10am-5:45pm<br>
+                    Friday: 10am-5:45pm<br>
+                    Saturday: 10am-5:45pm<br>
+                </div>
+                
+                <div class="column">
+                <!-- Borough -->
+                <section class="borough"><b>Borough</b>:<br>        
+                    Manhattan
+                </section>
+
+                <!-- Museum discount -->
+                <section class="last"><b>Discount</b>:<br>   
+                    Suggested donation, at museum ticket counter only.
+                </section>
+                </div>
+                </div>
+            </p>
+        </div>
+        </section> 
+         
+         <!-- Bronx Museum of the Arts -->
+         <section class="museumContent" id="bronxMuseum">
+          <div class="title museList bronx sunday wednesday thursday friday saturday">
+            <!-- Checkbox -->
+             <div class="ui right checkbox">
+              <input type="checkbox" name="bronxMuseumBox" id="bronxMuseumBox">
+              <label></label>
+            </div>
+             <!-- Title panel -->
+            <a href="#">Bronx Museum of the Arts</a>
+          </div>
+          <div class="content">
+            <p class="transition hidden">
+                <div class="ui two column grid">
+                <!-- Days open -->
+                <div class="column">
+                    <b>Days</b>:<br>
+                    Sunday: 11am-6pm<br>
+                    Wednesday: 1pm-6pm<br>
+                    Thrusday: 11am-6pm<br>
+                    Friday: 11am-8pm<br>
+                    Saturday: 11am-6pm<br>
+                </div>
+                
+                <div class="column">
+                <!-- Borough -->
+                <section class="borough"><b>Borough</b>:<br>        
+                    Bronx
+                </section>
+
+                <!-- Museum discount -->
+                <section class="last"><b>Discount</b>:<br>   
+                    Museum is free to everyone.
+                </section>
+                </div>
+                </div>
+            </p>
+        </div></section>
+     
+         <!-- Brooklyn Museum -->
+         <section class="museumContent" id="brooklynMuseum">
+          <div class="title museList brooklyn sunday wednesday thursday friday saturday">
+            <!-- Checkbox -->
+             <div class="ui right checkbox">
+              <input type="checkbox" name="brooklynMuseumBox" id="brooklynMuseumBox">
+              <label></label>
+            </div>
+             <!-- Title panel -->
+            <a href="#">Brooklyn Museum</a>
+          </div>
+          <div class="content">
+                <p class="transition hidden">
+                    <div class="ui two column grid">
+                    <!-- Days open -->
+                    <div class="column">
+                        <b>Days</b>:<br>
+                        Sunday: 11am-6pm<br>
+                        Wednesday: 11am-6pm<br>
+                        Thrusday: 11am-10pm<br>
+                        Friday: 11am-6pm<br>
+                        Saturday: 11am-6pm<br>
+                    </div>
+
+                    <div class="column">
+                    <!-- Borough -->
+                    <section class="borough"><b>Borough</b>:<br>        
+                        Brooklyn
+                    </section>
+
+                    <!-- Museum discount -->
+                    <section class="last"><b>Discount</b>:<br>   
+                        Suggested donation at museum ticket counter only. First Saturday of the month (except September) is free and includes events at the museum.
+                    </section>
+                    </div>
+                    </div>
+                </p>
+            </div></section>
+        
+        <!-- Metropolitan Museum of Art -->
+         <section class="museumContent" id="metMuseum">
+          <div class="title museList manhattan sunday monday tuesday wednesday thursday friday saturday">
+            <!-- Checkbox -->
+             <div class="ui right checkbox">
+              <input type="checkbox" name="metMuseumBox" id="metMuseumBox">
+              <label></label>
+            </div>
+             <!-- Title panel -->
+            <a href="#">Metropolitan Museum of Art</a>
+          </div>
+          <div class="content">
+            <p class="transition hidden">
+                <div class="ui two column grid">
+                <!-- Days open -->
+                <div class="column">
+                    <b>Days</b>:<br>
+                    Sunday: 10am-5:30pm<br>
+                    Monday: 10am-5:30pm<br>
+                    Tuesday: 10am-5:30pm<br>
+                    Wednesday: 10am-5:30pm<br>
+                    Thrusday: 10am-5:30pm<br>
+                    Friday: 10am-9pm<br>
+                    Saturday: 10am-9pm<br>
+                </div>
+                
+                <div class="column">
+                <!-- Borough -->
+                <section class="borough"><b>Borough</b>:<br>        
+                    Manhattan
+                </section>
+
+                <!-- Museum discount -->
+                <section class="last"><b>Discount</b>:<br>   
+                    Suggested donation for New York residents. <br>General Admission tickets are valid for three consecutive days at the Met Fifth Avenue, The Met Breuer, and The Met Cloisters.
+                </section>
+                </div>
+                </div>
+            </p>
+        </div></section>
+    
+        <!-- The Morgan Library and Museum -->
+         <section class="museumContent" id="morganMuseum">
+          <div class="title museList manhattan sunday tuesday wednesday thursday friday saturday">
+            <!-- Checkbox -->
+             <div class="ui right checkbox">
+              <input type="checkbox" name="morganMuseumBox" id="morganMuseumBox">
+              <label></label>
+            </div>
+             <!-- Title panel -->
+            <a href="#">The Morgan Library and Museum</a>
+          </div>
+          <div class="content">
+                <p class="transition hidden">
+                    <div class="ui two column grid">
+                    <!-- Days open -->
+                    <div class="column">
+                        <b>Days</b>:<br>
+                        Sunday: 11am-6pm<br>
+                        Tuesday: 10:30am-5pm<br>
+                        Wednesday: 10:30am-5pm<br>
+                        Thrusday: 10:30am-5pm<br>
+                        Friday: 10:30am-9pm<br>
+                        Saturday: 10am-6pm<br>
+                    </div>
+
+                    <div class="column">
+                    <!-- Borough -->
+                    <section class="borough"><b>Borough</b>:<br>        
+                        Manhattan
+                    </section>
+
+                    <!-- Museum discount -->
+                    <section class="last"><b>Discount</b>:<br>   
+                        Admission is free on Fridays from 7 p.m. to 9 p.m.<br>
+                            Admission to the McKim rooms only is free during the following times: Tuesday, 3pm to 5pm; Friday, 7pm to 9pm; Sunday, 4pm to 6pm.
+                    </section>
+                    </div>
+                    </div>
+                </p>
+            </div></section>
+
+        <!-- Museum of Chinese in America -->
+         <section class="museumContent" id="moca">
+          <div class="title museList manhattan sunday tuesday wednesday thursday friday saturday">
+            <!-- Checkbox -->
+             <div class="ui right checkbox">
+              <input type="checkbox" name="mocaBox" id="mocaBox">
+              <label></label>
+            </div>
+             <!-- Title panel -->
+            <a href="#">Museum of Chinese in America</a>
+          </div>
+          <div class="content">
+            <p class="transition hidden">
+                <div class="ui two column grid">
+                <!-- Days open -->
+                <div class="column">
+                    <b>Days</b>:<br>
+                    Sunday: 11am-6pm<br>
+                    Tuesday: 11am-6pm<br>
+                    Wednesday: 11am-6pm<br>
+                    Thrusday: 11am-9pm<br>
+                    Friday: 11am-6pm<br>
+                    Saturday: 11am-6pm<br>
+                </div>
+
+                <div class="column">
+                <!-- Borough -->
+                <section class="borough"><b>Borough</b>:<br>        
+                    Manhattan
+                </section>
+
+                <!-- Museum discount -->
+                <section class="last"><b>Discount</b>:<br>   
+                    Gallery addmission is free every first Thursday except on holidays.
+                </section>
+                </div>
+                </div>
+            </p>
+        </div></section>
+
+        <!-- Museum of the Moving Image -->
+         <section class="museumContent" id="momi">
+          <div class="title museList queens sunday wednesday thursday friday saturday">
+            <!-- Checkbox -->
+             <div class="ui right checkbox">
+              <input type="checkbox" name="momiBox" id="momiBox">
+              <label></label>
+            </div>
+             <!-- Title panel -->
+            <a href="#">Museum of the Moving Image</a>
+          </div>
+          <div class="content">
+            <p class="transition hidden">
+                <div class="ui two column grid">
+                <!-- Days open -->
+                <div class="column">
+                    <b>Days</b>:<br>
+                    Sunday: 10:30am-6pm<br>
+                    Wednesday: 10:30am-5pm<br>
+                    Thrusday: 10:30am-5pm<br>
+                    Friday: 10:30am-8pm<br>
+                    Saturday: 10:30am-6pm<br>
+                </div>
+
+                <div class="column">
+                <!-- Borough -->
+                <section class="borough"><b>Borough</b>:<br>        
+                    Queens
+                </section>
+
+                <!-- Museum discount -->
+                <section class="last"><b>Discount</b>:<br>   
+                    Free addmission on Fridays from 4pm-8pm.
+                </section>
+                </div>
+                </div>
+                </p>
+            </div></section>
+
+        <!-- Nicholas Roerich Museum -->
+         <section class="museumContent" id="roerichMuseum">
+          <div class="title museList manhattan sunday tuesday wednesday thursday friday saturday">
+            <!-- Checkbox -->
+             <div class="ui right checkbox">
+              <input type="checkbox" name="roerichMuseumBox" id="roerichMuseumBox">
+              <label></label>
+            </div>
+             <!-- Title panel -->
+            <a href="#">Nicholas Roerich Museum</a>
+          </div>
+          <div class="content">
+            <p class="transition hidden">
+                <div class="ui two column grid">
+                <!-- Days open -->
+                <div class="column">
+                    <b>Days</b>:<br>
+                    Sunday: 2pm-5pm<br>
+                    Tuesday: 12pm-4pm<br>
+                    Wednesday: 12pm-4pm<br>
+                    Thrusday: 12pm-4pm<br>
+                    Friday: 12pm-4pm<br>
+                    Saturday: 2pm-5pm<br>
+                </div>
+
+                <div class="column">
+                <!-- Borough -->
+                <section class="borough"><b>Borough</b>:<br>        
+                    Manhattan
+                </section>
+
+                <!-- Museum discount -->
+                <section class="last"><b>Discount</b>:<br>   
+                    Free addmission.<br> Concerts on most Sundays at 5pm.
+                </section>
+                </div>
+                </div>
+                </p>
+            </div></section>
+
+        <!-- Staten Island Museum -->
+         <section class="museumContent" id="statenMuseum">
+          <div class="title museList staten sunday wednesday thursday friday saturday">
+            <!-- Checkbox -->
+             <div class="ui right checkbox">
+              <input type="checkbox" name="statenMuseumBox" id="statenMuseumBox">
+              <label></label>
+            </div>
+             <!-- Title panel -->
+            <a href="#">Staten Island Museum</a>
+          </div>
+          <div class="content">
+            <p class="transition hidden">
+                <div class="ui two column grid">
+                <!-- Days open -->
+                <div class="column">
+                    <b>Days</b>:<br>
+                    Sunday: 11am-5pm<br>
+                    Wednesday: 11am-5pm<br>
+                    Thrusday: 11am-5pm<br>
+                    Friday: 11am-5pm<br>
+                    Saturday: 11am-5pm<br>
+                </div>
+
+                <div class="column">
+                <!-- Borough -->
+                <section class="borough"><b>Borough</b>:<br>        
+                    Staten Island
+                </section>
+
+                <!-- Museum discount -->
+                <section class="last"><b>Discount</b>:<br>   
+                    Suggested donation.
+                </section>
+                </div>
+                </div>
+                </p>
+            </div></section>
+
+        <!-- Studio Museum -->
+         <section class="museumContent" id="studioMuseum">
+          <div class="title museList manhattan sunday monday tuesday wednesday thursday friday saturday">
+            <!-- Checkbox -->
+             <div class="ui right checkbox">
+              <input type="checkbox" name="studioMuseumBox" id="studioMuseumBox">
+              <label></label>
+            </div>
+             <!-- Title panel -->
+            <a href="#">Studio Museum</a>   
+          </div>
+          <div class="content">
+            <p class="transition hidden">
+              <!-- Start of museum content -->
+                <div class="ui two column grid">
+                <!-- Days open -->
+                <div class="column">
+                    <b>Days</b>:<br>
+                    Sunday: 12pm-6pm<br>
+                    Monday: 12pm-6pm<br>
+                    Tuesday: 12pm-6pm<br>
+                    Wednesday: 12pm-6pm<br>
+                    Thrusday: 12pm-6pm<br>
+                    Friday: 12pm-6pm<br>
+                    Saturday: 12pm-6pm<br>
+                </div>
+
+                <div class="column">
+                <!-- Borough -->
+                <section class="borough"><b>Borough</b>:<br>        
+                    Manhattan
+                </section>
+
+                <!-- Museum discount -->
+                <section class="last"><br>   
+                    *the Studio Museum galleries are closed during the construction of their new facilities, projected to continue through 2021
+                </section>
+                </div>
+                </div>
+                </div>
+                </p>
+            </div></section>
+         
+         
+<!-------------------- End of accordian -------------------------------------------->
+    </div>             
+</div>    
+</div> 
+
+
+
+<!-- End of two column grid -->
+</div>
+
+
+<!-------------- Used to test adding to lists JS without cookies -------------------------------------------------------->
+        <!-- Custom Lists link 
         <div id="customLists">
-            <!-- First list button and space -->
+            <!-- First list button and space 
             <p><button type="submit" id="addto1">Add to:</button> List 1</p>
                 <div id="customList1"></div>
-            <!-- Second list button and space -->
+            <!-- Second list button and space 
             <p><button type="submit" id="addto2">Add to:</button> List 2</p>
                 <div id="customList2"></div>
-            <!-- Third list button and space -->
+            <!-- Third list button and space 
             <p><button type="submit" id="addto3">Add to:</button> List 3</p>
-                <div id="customList3"></div>
-            
-            <!-- Link to list page (probably getting rid of this page and condensing to one page)
-            <a href="listsPage.html">View my lists</a> 
+                <div id="customList3"></div>  
         </div>
-            -->
+
 
         <!-- Javascript link -->
         <script type="text/javascript" src="data-json.js">
@@ -317,22 +846,14 @@
 <!-- Attaching json file to page   
 <script src="museumList.json?callback=showMuseums"></script> 
 -->
+
+<!-- Semantics Javascript -->
+<script>
+$('.ui.accordion').accordion();
+$('.ui.dropdown').dropdown();
+$('#showAbout').click(function(){
+    $('#aboutModal').modal('show');
+});
+</script>
     </body>
 </html>
-
-                                                  
-
-
-<!-- Test space -->
-<!--
- Idea to make the checkboxes looks like buttons 
-<br>
-<input id="chk_sunday" type="checkbox" name="wpuf_post_tags[]" class="vis-hidden new-post-tags" value="Sunday" />
-<label for="chk_sunday">Sunday</label>
-
-<input id="chk_monday" type="checkbox" name="wpuf_post_tags[]" class="vis-hidden new-post-tags" value="Monday" />
-<label for="chk_Monday">Monday</label>
-
-<input id="chk_Tuesday" type="checkbox" name="wpuf_post_tags[]" class="vis-hidden new-post-tags" value="Tuesday" />
-<label for="chk_Tuesday">Tuesday</label><br><br>
--->
