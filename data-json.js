@@ -19,8 +19,8 @@ function searchName() {
 
 // Reference:   https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_filter_list 
 
-/************************************************************ Search days in dropdown (doesn't work as is) ********************************************************/
-  
+/************************************* Search days in dropdown (doesn't work as is) ********************************************************/
+  /*
     // find dropdown list
     var dropDown =  document.getElementById('searchDays');
     // find day selected from dropdown
@@ -38,9 +38,9 @@ dropDown.addEventListener('onchange', function() {
             }
         } 
 });
- 
+*/ 
 
-/********************************************************************** Activate search button ****************************************************************************************************************/
+/****************************************************** Activate search button ****************************************************************************************************************/
 
 
 
@@ -124,6 +124,7 @@ document.getElementById("search").addEventListener("click", function () {
         }
     }
 });
+
 
 
 /************************************************************************ Enter selected museums to first lists (not finished, description included in comment) *********************************************************/

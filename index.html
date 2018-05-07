@@ -52,10 +52,10 @@
     <!--------- Drop down in menu bar ---------------->
           <div class="right menu">
             <div class="ui selection dropdown item">
-                <input type="hidden" name="listOptions">
+                <input type="hidden" name="listOptions" id="listDropdown">
                 <!-- Default dropdown name -->
-                <div class="default text">Add to: (choose desired list)</div>
-                <i class="dropdown icon"></i>
+                <div class="default text">Add to: (choose desired list)
+                <i class="dropdown icon"></i></div>
                 <!-- List items -->
               <div class="menu">
                 <a id="addto1" class="item" data-value="0">Top Picks</a>
@@ -840,9 +840,10 @@
         </div>
 
 
-        <!-- Javascript link -->
-        <script type="text/javascript" src="data-json.js">
-        </script>
+<!-- Javascript link -->
+<script type="text/javascript" src="data-json.js">
+</script>
+
 <!-- Attaching json file to page   
 <script src="museumList.json?callback=showMuseums"></script> 
 -->

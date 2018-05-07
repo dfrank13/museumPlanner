@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Style sheet -->
         <link rel="stylesheet" type="text/css" href="style.css">
-        
+        <!-- Semantic UI style sheet -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css">
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js"></script>
@@ -49,16 +50,20 @@
             Home
           </a>
           <div class="right menu">
-            <div class="ui dropdown item">
-              Remove From: <i class="dropdown icon"></i>
+            <div class="ui selection dropdown item" id="listDropdown">
+                <!-- Default dropdown name -->
+              <div class="default text">Remove Museum from list
+                <i class="dropdown icon"></i></div>
+                <!-- Start of dropdown list -->
               <div class="menu">
-                <a class="item">Top Picks</a>
-                <a class="item">Girls outting</a>
-                <a class="item">Date night</a>
+                <a id="addto1" class="item" data-value="0">Top Picks</a>
+                <a id="addto2" class="item" data-value="1">Girls outting</a>
+                <a id="addto3" class="item" data-value="2">Date night</a>
+                <a class="item" data-value="3">+ Add new list</a>
               </div>
             </div>
             <div class="item">
-                <div class="ui button">Select List</div>
+                <div class="ui button">Remove Item</div>
             </div>
           </div>
         </div>
@@ -76,22 +81,30 @@
                 <!-- First list -->
             <div id="firstList" class="eight wide column">
                 <div class="ui segment">
+                    <!-- Input area -->
                     <div class="ui transparent input">
-                      <input type="text" value="Top Picks">
+                      <input type="text" value="Top Picks" id="listName1">
                     </div>
+                    <!-- Save button -->
+                    <div class="ui right floated button">Save</div>
+                        <br><br>
                     <!-- List one area -->
-                    <div id="customList1" class="ui container"></div>
+                    <div id="customList1" class="ui styled accordion"></div>
                 </div>
             </div>
 
                 <!-- Second List -->
             <div id="secondList" class="eight wide column">
                 <div class="ui segment">
+                    <!-- Input area -->
                     <div class="ui transparent input">
-                      <input type="text" value="Girls' Outting">
+                      <input type="text" value="Girls' Outting" id="listName2">
                     </div>
+                    <!-- Save button -->
+                    <div class="ui right floated button">Save</div>
+                        <br><br>
                     <!-- List 2 area -->
-                    <div id="customList2" class="ui container"></div>
+                    <div id="customList2" class="ui styled accordion"></div>
                 </div>
             </div>
         </div>
@@ -100,22 +113,72 @@
                 <!-- Third List -->
             <div id="thirdList" class="eight wide column">
                 <div class="ui segment">
+                    <!-- Input area -->
                     <div class="ui transparent input">
-                      <input type="text" value="Date Night">
+                      <input type="text" value="Date Night" id="listName3">
                     </div>
+                    <!-- Save Button -->
+                    <div class="ui right floated button">Save</div>
+                        <br><br>
                     <!-- List 3 area -->
-                    <div id="customList3" class="ui container"></div>
+                    <div id="customList3" class="ui styled accordion"></div>
                 </div>
             </div>  
 
                 <!-- Fourth List -->
-            <div id="thirdList" class="eight wide column">
+            <div id="forthList" class="eight wide column">
                 <div class="ui segment">
+                    <!-- Input area -->
                     <div class="ui transparent input">
-                      <input type="text" placeholder="Add new list">
-                    </div>
+                        <input type="text" placeholder="Untitled List 4" id="listName4">
+                        </div>
+                        <!-- Save button -->
+                        <div class="ui right floated button">Save</div>
+                        <br><br>
+                    
                     <!-- List 4 area -->
-                    <div id="customList3" class="ui container"></div>
+                    <div id="customList3" class="ui styled accordion">
+                    <section class="museumContent" id="amnh"> 
+                     <div class="title museList manhattan sunday monday tuesday wednesday thursday friday saturday">
+                         <!-- Checkbox -->
+                         <div class="ui right checkbox">
+                          <input type="checkbox" name="amnhBox" id="amnhBox">
+                          <label></label>
+                        </div>
+                         <!-- Title panel -->
+                        <a href="#">American Museum of Natural History</a>
+                      </div>
+                      <div class="content">
+                        <p class="transition hidden">
+                            <div class="ui two column grid">
+                            <!-- Days open -->
+                            <div class="column">
+                                <b>Days</b>:<br>
+                                Sunday: 10am-5:45pm<br>
+                                Monday: 10am-5:45pm<br>
+                                Tuesday: 10am-5:45pm<br>
+                                Wednesday: 10am-5:45pm<br>
+                                Thrusday: 10am-5:45pm<br>
+                                Friday: 10am-5:45pm<br>
+                                Saturday: 10am-5:45pm<br>
+                            </div>
+
+                            <div class="column">
+                            <!-- Borough -->
+                            <section class="borough"><b>Borough</b>:<br>        
+                                Manhattan
+                            </section>
+
+                            <!-- Museum discount -->
+                            <section class="last"><b>Discount</b>:<br>   
+                                Suggested donation, at museum ticket counter only.
+                            </section>
+                            </div>
+                            </div>
+                        </p>
+                    </div>
+                    </section> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -125,16 +188,23 @@
     </div>
 </div>
 
-        <!-- Link to js -->
-        <script type="text/javascript" src="data-json.js">
-        </script>
+<!-- Link to data-json.js -->
+<script type="text/javascript" src="data-json.js">
+</script>
+    
+<!-- Link to lists javascript -->
+    <script type="text/javascript" src="lists-script.js"></script>
         
 <!-- Semantics javascript -->
 <script>
-    $('.ui.dropdown').dropdown();
+    $('#listDropdown').dropdown({
+       
+    });
     $('#showAbout').click(function(){
         $('#aboutModal').modal('show');
     });
+    $('.ui.accordion').accordion();
+
 </script>
     </body>
 </html>
